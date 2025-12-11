@@ -1,0 +1,42 @@
+{
+  "namespace": "com.thinkstream",
+  "type": "record",
+  "name": "AgentJobState",
+  "fields": [
+    {
+      "name": "job_id",
+      "type": "string",
+      "doc": "Unique UUID for this request"
+    },
+    {
+      "name": "current_stage",
+      "type": {
+        "type": "enum",
+        "name": "Stage",
+        "symbols": ["STARTED", "RESEARCHED", "DRAFTED", "COMPLETED", "FAILED"]
+      }
+    },
+    {
+      "name": "user_query",
+      "type": "string",
+      "doc": "The initial prompt from the user"
+    },
+    {
+      "name": "research_facts",
+      "type": ["null", "string"],
+      "default": null,
+      "doc": "Raw text found by the Research Agent"
+    },
+    {
+      "name": "final_draft",
+      "type": ["null", "string"],
+      "default": null,
+      "doc": "The blog post written by the Writer Agent"
+    },
+    {
+      "name": "error_log",
+      "type": ["null", "string"],
+      "default": null
+    }
+  ]
+}
